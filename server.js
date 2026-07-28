@@ -8,7 +8,7 @@ app.use(express.json());
 app.post("/", async (req, res) => {
 
   const response = await fetch(
-    "https://script.google.com/macros/s/AKfycbxmW6z8CUV_Fpyl862l-qOfQWGgJrn1Avm9S5z5TM5qKB4OdneYX7-lKXQlpJmyYbHe/exec"
+    "https://script.google.com/macros/s/AKfycbwmEAb7S8ifkrTgchmAsg-mBlC7IDBxFGR5FYSTYejOLsCUmJcc9w3nPVJc0NC027Hm/exec"
   );
 
   const data = await response.json();
@@ -25,6 +25,7 @@ app.post("/", async (req, res) => {
       });
     }
 
+
     if (item.type === "image") {
       outputs.push({
         simpleImage: {
@@ -33,6 +34,25 @@ app.post("/", async (req, res) => {
         }
       });
     }
+
+
+    if (item.type === "quiz") {
+
+      outputs.push({
+        simpleText: {
+          text: item.question
+        }
+      });
+
+      outputs.push({
+        simpleText: {
+          text:
+          `1️⃣ ${item.choice1}\n2️⃣ ${item.choice2}`
+        }
+      });
+
+    }
+
 
   });
 
