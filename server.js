@@ -7,7 +7,7 @@ app.use(express.json());
 app.post("/", async (req, res) => {
 
   const response = await fetch(
-    "여기에 Apps Script URL"
+    "https://script.google.com/macros/s/AKfycby-UjWELO1GhIUPd0RvrxG7DAfUCjkTtA0RDObRtzQp0n6B4Y1P1X43lOxD5Cvha4FR/exec"
   );
 
   const data = await response.json();
