@@ -18,7 +18,7 @@ app.post("/", async (req, res) => {
       outputs: [
         {
           simpleText: {
-            text: data[0].title
+            text: data.story[1].content
           }
         }
       ]
