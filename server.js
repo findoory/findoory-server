@@ -1,22 +1,30 @@
-const express = require("express");
+const express = require("node-fetch");
 
 const app = express();
 
 app.use(express.json());
 
-app.post("/", (req, res) => {
+app.post("/", async (req, res) => {
+
+  const response = await fetch(
+    "여기에 Apps Script URL"
+  );
+
+  const data = await response.json();
+
   res.json({
     version: "2.0",
     template: {
       outputs: [
         {
           simpleText: {
-            text: "핀도리 연결 성공"
+            text: data[0].title
           }
         }
       ]
     }
   });
+
 });
 
 app.listen(3000, () => {
