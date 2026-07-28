@@ -8,7 +8,7 @@ app.use(express.json());
 app.post("/", async (req, res) => {
 
   const response = await fetch(
-    "https://script.google.com/macros/s/AKfycbzF7AlsflryXwcEtkM77vyuaQ5rkhfmr-jJFr79It7AdDfeHmQkoOEqoLxuC0A4KkQi/exec"
+    "https://script.google.com/macros/s/AKfycbxmW6z8CUV_Fpyl862l-qOfQWGgJrn1Avm9S5z5TM5qKB4OdneYX7-lKXQlpJmyYbHe/exec"
   );
 
   const data = await response.json();
