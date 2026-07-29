@@ -61,7 +61,7 @@ app.post("/kakao", async(req,res)=>{
                 {
                     textCard:{
                         title:"도감을 확인해보세요.",
-                        button:[
+                        buttons:[
                             {
                                 action:"webLink",
                                 label:"도감 보기",
