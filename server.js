@@ -47,7 +47,7 @@ app.post("/kakao", async(req,res)=>{
 
     await saveUser(kakao_id);
 
-    if(utterance === "도감 얻기"){
+    if(utterance === "도감 보기"){
 
     res.json({
         version:"2.0",
