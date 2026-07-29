@@ -78,3 +78,110 @@ header p {
     line-height:1.6;
 
 }
+
+/* 실제 사용자별 도감 화면 */
+
+* {
+    box-sizing: border-box;
+}
+
+.collection {
+    width: 100%;
+}
+
+.card {
+    overflow: hidden;
+}
+
+.card img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    background: #eee7da;
+}
+
+.card-label {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 7px 12px;
+
+    color: #8a623e;
+    background: #fff3cf;
+
+    border-radius: 999px;
+
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.card h2 {
+    margin: 14px 0 8px;
+    color: #3f4938;
+}
+
+.state-box {
+    padding: 40px 24px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.78);
+    border: 2px dashed #d9c7a8;
+    border-radius: 25px;
+
+    box-shadow: 0 10px 25px rgba(74, 57, 37, 0.06);
+}
+
+.state-icon {
+    margin-bottom: 14px;
+    font-size: 48px;
+}
+
+.state-box h2 {
+    margin: 0 0 12px;
+    color: #3f4938;
+    font-size: 21px;
+}
+
+.state-box p {
+    margin: 0;
+    color: #6c665e;
+    line-height: 1.7;
+}
+
+@media (max-width: 600px) {
+    .book {
+        width: 100%;
+        margin: 0 auto;
+        padding: 28px 18px 40px;
+    }
+
+    header {
+        margin-bottom: 24px;
+    }
+
+    h1 {
+        margin: 8px 0 12px;
+        font-size: 32px;
+    }
+
+    header h2 {
+        margin: 0 0 10px;
+        font-size: 21px;
+    }
+
+    header p {
+        margin: 0;
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    .card {
+        padding: 16px;
+        border-radius: 22px;
+    }
+
+    .card img {
+        border-radius: 17px;
+    }
+}
