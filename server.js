@@ -59,8 +59,9 @@ app.post("/kakao", async(req,res)=>{
                     }
                 },
                 {
-                    basicCard:{
-                        buttons:[
+                    textCard:{
+                        title:"도감을 확인해보세요.",
+                        button:[
                             {
                                 action:"webLink",
                                 label:"도감 보기",
