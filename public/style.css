@@ -1,0 +1,80 @@
+body {
+
+    margin:0;
+    background:#f6f1e7;
+    font-family: "Arial", sans-serif;
+
+}
+
+
+.book {
+
+    max-width:500px;
+    margin:40px auto;
+    padding:30px;
+
+}
+
+
+header {
+
+    text-align:center;
+    margin-bottom:30px;
+
+}
+
+
+h1 {
+
+    font-size:36px;
+
+}
+
+
+header p {
+
+    color:#666;
+
+}
+
+
+
+.card {
+
+    background:white;
+
+    border-radius:25px;
+
+    padding:20px;
+
+    margin-bottom:20px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+
+}
+
+
+
+.card img {
+
+    width:100%;
+
+    border-radius:20px;
+
+}
+
+
+
+.card h2 {
+
+    margin-top:15px;
+
+}
+
+
+.description {
+
+    color:#555;
+    line-height:1.6;
+
+}
