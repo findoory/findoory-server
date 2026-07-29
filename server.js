@@ -45,11 +45,12 @@ app.post("/kakao", async(req,res)=>{
     const kakao_id = req.body.userRequest.user.id;
     const utterance = req.body.userRequest.utterance;
 
-    await saveUser(kakao_id);
-
     if(utterance === "도감 확인"){
 
-    res.json({
+        saveUser(kakao_id)
+            .catch((error)=>console.error("사용자 저장 오류:", error));
+
+    return res.json({
         version:"2.0",
         template:{
             outputs:[
@@ -77,6 +78,8 @@ app.post("/kakao", async(req,res)=>{
 }
 
     if(utterance === "도감에 넣기"){
+    
+    await saveUser(kakao_id);
 
     const today = new Date(Date.now() + 9 * 60 * 60 * 1000)
         .toISOString()
@@ -179,6 +182,20 @@ app.post("/kakao", async(req,res)=>{
     });
 
 }
+
+return res.json({
+    version:"2.0",
+    template:{
+        outputs:[
+            {
+                simpleText:{
+                    text:"지원하지 않는 요청입니다."
+                }
+            }
+        ]
+    }
+});
+
 });
 
 
