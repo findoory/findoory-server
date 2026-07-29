@@ -75,6 +75,110 @@ app.post("/kakao", async(req,res)=>{
     });
 
 }
+
+    if(utterance === "도감에 넣기"){
+
+    const today = new Date(Date.now() + 9 * 60 * 60 * 1000)
+        .toISOString()
+        .slice(0, 10);
+
+
+    // 오늘 지급할 카드 찾기
+    const { data: card } = await supabase
+        .from("encyclopedia")
+        .select("id")
+        .eq("card_date", today)
+        .single();
+
+
+    if(!card){
+
+        return res.json({
+            version:"2.0",
+            template:{
+                outputs:[
+                    {
+                        simpleText:{
+                            text:"오늘의 카드가 아직 준비되지 않았습니다."
+                        }
+                    }
+                ]
+            }
+        });
+
+    }
+
+
+    // 이미 받은 카드인지 확인
+    const { data: existing } = await supabase
+        .from("user_cards")
+        .select("*")
+        .eq("kakao_id", kakao_id)
+        .eq("card_id", card.id)
+        .single();
+
+
+    if(existing){
+
+        return res.json({
+            version:"2.0",
+            template:{
+                outputs:[
+                    {
+                        simpleText:{
+                            text:"이미 도감에 보관한 카드입니다."
+                        }
+                    }
+                ]
+            }
+        });
+
+    }
+
+
+    // 오늘 카드 지급
+    const { error } = await supabase
+        .from("user_cards")
+        .insert([
+            {
+                kakao_id:kakao_id,
+                card_id:card.id
+            }
+        ]);
+
+
+    if(error){
+
+        return res.json({
+            version:"2.0",
+            template:{
+                outputs:[
+                    {
+                        simpleText:{
+                            text:"카드 저장 중 오류가 발생했습니다."
+                        }
+                    }
+                ]
+            }
+        });
+
+    }
+
+
+    return res.json({
+        version:"2.0",
+        template:{
+            outputs:[
+                {
+                    simpleText:{
+                        text:"오늘의 카드를 도감에 보관했습니다!"
+                    }
+                }
+            ]
+        }
+    });
+
+}
 });
 
 
