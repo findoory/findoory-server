@@ -105,6 +105,13 @@ app.post("/kakao", async(req,res)=>{
                             text:"오늘의 카드가 아직 준비되지 않았습니다."
                         }
                     }
+                ],
+                quickReplies:[
+                    {
+                        action:"message",
+                        label:"홈",
+                        messageText:"홈"
+                    }
                 ]
             }
         });
@@ -168,6 +175,13 @@ app.post("/kakao", async(req,res)=>{
                             text:"카드 저장 중 오류가 발생했습니다."
                         }
                     }
+                ],
+                quickReplies:[
+                    {
+                        action:"message",
+                        label:"홈",
+                        messageText:"홈"   
+                    }
                 ]
             }
         });
@@ -187,7 +201,7 @@ app.post("/kakao", async(req,res)=>{
             ],
             quickReplies:[
                 {
-                    action:"mssage",
+                    action:"message",
                     label:"홈",
                     messageText:"홈"
                 }
@@ -206,7 +220,14 @@ return res.json({
                     text:"지원하지 않는 요청입니다."
                 }
             }
-        ]
+        ],
+        quickReplies:[
+            {
+                action:"message",  
+                label:"홈",
+                messageText:"홈"
+            }
+        ]   
     }
 });
 
