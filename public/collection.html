@@ -25,6 +25,17 @@ fetch(`/collection/${kakao_id}`)
 
     const box=document.getElementById("cards");
 
+    if(data.length === 0){
+
+        box.innerHTML = `
+        <p>아직 획득한 카드가 없습니다.</p>
+        <p>매일 퀘스트와 퀴즈를 완료해서 카드를 모아보세요!</p>
+        `;
+
+        return;
+
+    }
+
 
     data.forEach(card=>{
 
