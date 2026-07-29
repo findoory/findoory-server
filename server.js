@@ -132,6 +132,13 @@ app.post("/kakao", async(req,res)=>{
                             text:"이미 도감에 보관한 카드입니다."
                         }
                     }
+                ],
+                quickReplies:[
+                    {
+                        action:"message",
+                        label:"홈",
+                        messageText:"홈"   
+                    }
                 ]
             }
         });
