@@ -25,7 +25,7 @@ fetch("/collection/test123")
                 </span>
 
                 <h2>
-                🐢 ${card.name}
+                 ${card.name}
                 </h2>
 
         </div>
