@@ -92,7 +92,7 @@ if (!kakao_id) {
                 cardLabel.textContent = "✨ 의뢰 해결 완료";
 
                 const cardName = document.createElement("h2");
-                cardName.textContent = `🐢 ${card.name || "이름 없는 카드"}`;
+                cardName.textContent = card.name || "이름 없는 카드";
 
                 const description = document.createElement("p");
                 description.className = "description";
